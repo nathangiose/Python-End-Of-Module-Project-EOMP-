@@ -22,27 +22,6 @@ spin_boardA = LabelFrame(root, text="Board A", bg='#069edb', bd=4, width=391)
 spin_boardA.place(x=55, y=150)
 
 
-def Lotto_No():
-    r = random.randint(1, 49);
-    a = random.randint(1, 49);
-    n = random.randint(1, 49);
-    d = random.randint(1, 49);
-    o = random.randint(1, 49);
-    m = random.randint(1, 49);
-    num1.set(r)
-    num2.set(a)
-    num3.set(n)
-    num4.set(d)
-    num5.set(o)
-    num6.set(m)
-    return
-
-num1 = StringVar()
-num2 = StringVar()
-num3 = StringVar()
-num4 = StringVar()
-num5 = StringVar()
-num6 = StringVar()
 
 current_value = StringVar(value=0)
 current_value.set("Lotto Numbers")
@@ -64,7 +43,7 @@ spin_box5 = Spinbox(spin_boardA, from_=1, to=49, textvariable='', wrap=True, wid
 spin_box5.pack(side=LEFT)
 spin_box6 = Spinbox(spin_boardA, from_=1, to=49, textvariable='', wrap=True, width=4, bg='Aqua')
 spin_box6.pack(side=LEFT)
-btn_spin = Button(spin_boardA, text="Spin", bg='red', width=8, command=Lotto_No)
+btn_spin = Button(spin_boardA, text="Spin", bg='red', width=8)
 btn_spin.pack(side=BOTTOM)
 
 
