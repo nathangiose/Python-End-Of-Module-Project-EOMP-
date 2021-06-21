@@ -8,6 +8,10 @@ from tkinter import *
 from tkinter import messagebox
 from datetime import datetime, timedelta
 import rsaidnumber
+import re as mail
+
+
+
 
 # Designing the interface
 
@@ -55,22 +59,53 @@ class Authentication:
         self.authentication_btn = Button(root, text="Confirm", command=self.age_check)
         self.authentication_btn.place(x=215, y=350)
 
-# Age check
+        self.notification_lbl = Label(root, font=('Arial', 12))
+        self.notification_lbl.place(x=53, y=400)
+        if self.name_entry == "" or self.email_entry == "" or self.identity_entry == "" or self.address_entry == "":
+            self.notification_lbl.config(fg="red", text="All fields required * ")
+            return
+        '''for name_check in all_accounts:
+            if name == name_check:
+                notif.config(fg="red", text="Account already exists")
+                return
+            else:
+                new_file = open(name, "w")
+                new_file.write(name + '\n')
+                new_file.write(password + '\n')
+                new_file.write(age + '\n')
+                new_file.write(ID + '\n')
+                new_file.write('0')
+                new_file.close()
+                notif.config(fg="green", text="Account has been created")
+'''
+    # EMAIL CHECK
+
+    def email_confirmation(self, root):
+        if mail.search(root, self.emailEntry.get()):
+            return 1
+        else:
+            messagebox.showerror("Email not Valid ", "Please try again")
+
+
+# AGE CHECK
 
 
     def age_check(self):
         id_number = rsaidnumber.parse(self.identity_entry.get())
         age = str((datetime.today() - id_number.date_of_birth) // timedelta(days=365.25))
-        #print(age)
+        # print(age)
         try:
             if int(age) >= 18:
                 messagebox.showinfo("Congratulations!", "You qualify to play")
             elif int(age) < 18:
                 ages = str(int(age) - 18)
-                messagebox.showerror("Error", "You're not of age to Gamble! You can play in" + ages + " year/s")
-           #     print(ages)
+                messagebox.showerror("UnderAge", "You're not of age to Gamble! You can play in" + ages + " year/s")
+                # print(ages)
         except ValueError:
             messagebox.showerror("Error", "Invalid ID number")
+
+
+
 
 # Running the program
 

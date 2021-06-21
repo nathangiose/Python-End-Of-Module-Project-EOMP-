@@ -205,9 +205,9 @@ class allNumbers:
         correct = 0
         correct2 = 0
         correct3 = 0
-        earnings1 = 0
-        earnings2 = 0
-        earnings3 = 0
+        prize_money1 = 0
+        prize_money2 = 0
+        prize_money3 = 0
         prizes = [0, 0, 20, 100.50, 2384, 8584, 10000000]
         lotto_list = random.sample(range(1, 49), 6)
         lotto_list.sort()
@@ -218,55 +218,55 @@ class allNumbers:
             if number in lotto_list:
                 correct += 1
             if correct == 2:
-                earnings1 = prizes[2]
+                prize_money1 = prizes[2]
             elif correct == 3:
-                earnings1 = prizes[3]
+                prize_money1 = prizes[3]
             elif correct == 4:
-                earnings1 = prizes[4]
+                prize_money1 = prizes[4]
             elif correct == 5:
-                earnings1 = prizes[5]
+                prize_money1 = prizes[5]
             elif correct == 6:
-                earnings1 = prizes[6]
+                prize_money1 = prizes[6]
         else:
-            messagebox.showerror("Matches", "Matches in set one: " + str(correct) + "\nEarnings: " + "R" + str(earnings1) +
+            messagebox.showerror("Matches", "Matches in set one: " + str(correct) + "\nprize_money: " + "R" + str(prize_money1) +
                                  "\nMatching number: " + str(matching1))
 
         for number in self.root_set2:
             if number in lotto_list:
                 correct2 += 1
             if correct2 == 2:
-                earnings2 = prizes[2]
+                prize_money2 = prizes[2]
             elif correct2 == 3:
-                earnings2 = prizes[3]
+                prize_money2 = prizes[3]
             elif correct2 == 4:
-                earnings2 = prizes[4]
+                prize_money2 = prizes[4]
             elif correct2 == 5:
-                earnings2 = prizes[5]
+                prize_money2 = prizes[5]
             elif correct2 == 6:
-                earnings2 = prizes[6]
+                prize_money2 = prizes[6]
         else:
-            messagebox.showerror("Matches", "Matches in set one: " + str(correct2) + "\nEarnings: " +
-                                 "R" + str(earnings2) + "\nMatching number: " + str(matching2))
+            messagebox.showerror("Matches", "Matches in set one: " + str(correct2) + "\nprize_money: " +
+                                 "R" + str(prize_money2) + "\nMatching number: " + str(matching2))
 
         for number in self.root_set3:
             if number in lotto_list:
                 correct3 += 1
             if correct3 == 2:
-                earnings3 = prizes[2]
+                prize_money3 = prizes[2]
             elif correct3 == 3:
-                earnings3 = prizes[3]
+                prize_money3 = prizes[3]
             elif correct3 == 4:
-                earnings3 = prizes[4]
+                prize_money3 = prizes[4]
             elif correct3 == 5:
-                earnings3 = prizes[5]
+                prize_money3 = prizes[5]
             elif correct3 == 6:
-                earnings3 = prizes[6]
+                prize_money3 = prizes[6]
         else:
-            messagebox.showerror("Matches", "Matches in set one: " + str(correct3) + "\nEarnings: " +
-                                 "R" + str(earnings3) + "\nMatching number: " + str(matching3))
+            messagebox.showerror("Matches", "Matches in set one: " + str(correct3) + "\nprize_money: " +
+                                 "R" + str(prize_money3) + "\nMatching number: " + str(matching3))
 
         if len(self.root_set1) == 6 and len(self.root_set2) == 6 and len(self.root_set3) == 6:
-            user_prize = float(earnings1 + earnings2 + earnings3)
+            user_prize = float(prize_money1 + prize_money2 + prize_money3)
             self.prizes_label.config(text="R" + str(user_prize))
             self.lotto_no.config(text=lotto_list)
         else:
